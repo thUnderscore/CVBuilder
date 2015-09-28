@@ -1,1 +1,0 @@
-"C:\Development\NetBeans 8.0.2\extide\ant\bin\ant" -f "build.xml" -Dnb.internal.action.name=rebuild clean jar
