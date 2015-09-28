@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="CVBuilder" default="default" basedir=".">
+    <description>Builds, tests, and runs the project CV.</description>
+    <import file="nbproject/build-impl.xml"/>
+    <property name= "sourcesres.dir" location="build/classes/sources"/>
+    
+    <target name="-pre-compile">  
+        <delete dir="${sourcesres.dir}"/>
+        <copy todir="${sourcesres.dir}">            
+            <fileset dir="${basedir}">
+                <include name="src/"/>
+                <include name="sign/"/>
+                <include name="nbproject/"/>
+                <exclude name="nbproject/private/"/>
+
+                
+            </fileset>
+            
+            <fileset dir="${basedir}">
+                <filename name="*.*"/>
+                <exclude name="build.cmd"/>
+                <exclude name="build.sh"/>
+            </fileset>
+            
+          
+        </copy>
+        <replace file="${sourcesres.dir}/nbproject/project.properties" 
+                 token="jnlp.enabled=true" value="jnlp.enabled=false">
+           
+        </replace>
+        <copy todir="build/classes">
+            <fileset dir="classes/">
+            </fileset>          
+        </copy>       
+    </target>
+    
+</project>
